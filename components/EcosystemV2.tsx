@@ -28,11 +28,12 @@ const EcosystemV2: React.FC = () => {
     { 
       id: 'RentOS',
       icon: 'home_work', 
+      logo: '/logo_RentOS.png',
       name: 'RentOS', 
       color: 'text-blue-400', 
       status: 'Operativo en Producción',
       isIncubation: false,
-      desc: 'El sistema operativo de NexOS para alquiler vacacional. Su función es ordenar y automatizar la operación real del alojamiento. Gestión operativa de reservas, comunicación con huéspedes, coordinación automática, avisos y flujos operativos para que disfrutes de menos fricción diaria y más control.' 
+      desc: 'RentOS viene a cambiar cómo se gestiona de verdad la operativa del alquiler vacacional. La operativa ya no tiene por qué depender de ti. Mete sistema donde más se nota: en la carga diaria que te roba tiempo, en la coordinación que desgasta y en el control que normalmente se pierde entre WhatsApp, tareas y cambios de última hora.' 
     },
     { 
       id: 'PilotOS',
@@ -133,7 +134,17 @@ const EcosystemV2: React.FC = () => {
                   {/* Cabecera de la Tarjeta */}
                   <div className={`flex items-center transition-all duration-500 ${isActive ? 'flex-row gap-5' : 'flex-col gap-5'}`}>
                     <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center transition-all duration-500 ${node.color} ${isActive ? (node.isIncubation ? 'bg-white/5 border border-white/10' : 'bg-blue-600/20 shadow-[0_0_30px_rgba(59,130,246,0.2)] border border-blue-500/30') : 'bg-white/5'}`}>
-                      <span className="material-symbols-outlined text-3xl md:text-4xl">{node.icon}</span>
+                      {'logo' in node && node.logo ? (
+                        <motion.img 
+                          src={node.logo} 
+                          alt={node.name} 
+                          className="w-full h-full p-0 object-contain scale-[1.65]" 
+                          animate={isActive ? { scale: [1.65, 1.7, 1.65] } : {}}
+                          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                      ) : (
+                        <span className="material-symbols-outlined text-3xl md:text-4xl">{node.icon}</span>
+                      )}
                     </div>
                     
                     <div className={`transition-all duration-500 ${isActive ? 'translate-y-0' : 'rotate-0 lg:rotate-90 lg:mt-24'}`}>
@@ -170,6 +181,28 @@ const EcosystemV2: React.FC = () => {
                                 {node.status}
                               </span>
                             </div>
+                            {node.id === 'RentOS' && (
+                              <div className="flex items-center gap-3">
+                                <a
+                                  href="https://rentos.nexostudios.digital/"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 border border-white/10 hover:border-white/20 hover:text-white transition-all duration-300"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  Visitar Web
+                                </a>
+                                <a
+                                  href="https://rentos.nexostudios.digital/onboarding.html"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-blue-600/20 text-blue-400 border border-blue-500/30 hover:bg-blue-600/40 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
+                                  onClick={(e) => e.stopPropagation()}
+                                >
+                                  Activar Piloto Gratis →
+                                </a>
+                              </div>
+                            )}
                           </div>
                         )}
                       </motion.div>
