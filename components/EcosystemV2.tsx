@@ -1,228 +1,198 @@
-import React, { useRef, useState } from 'react';
-import { motion, useScroll, useTransform, useSpring, AnimatePresence } from 'framer-motion';
+import React from 'react';
+import { motion } from 'framer-motion';
+
+type Product = {
+  id: string;
+  name: string;
+  logo?: string;
+  logoBoxClass?: string;
+  logoClass?: string;
+  icon: string;
+  status: string;
+  statusTone: string;
+  description: string;
+  keyPhrase: string;
+  focus: string;
+  accent: string;
+  href?: string;
+  ctaLabel?: string;
+  disabledLabel?: string;
+};
+
+const products: Product[] = [
+  {
+    id: 'rentos',
+    name: 'RentOS',
+    logo: '/logo_RentOS.png',
+    logoBoxClass: 'h-16 w-16',
+    logoClass: 'h-12 w-12 scale-[1.7]',
+    icon: 'home_work',
+    status: 'Disponible',
+    statusTone: 'bg-blue-500/10 text-blue-300 border-blue-400/30',
+    description:
+      'Automatiza la operativa de alquiler vacacional: reservas, huespedes, limpiezas, avisos y seguimiento diario.',
+    keyPhrase: 'Automatiza tu alquiler vacacional y relajate.',
+    focus:
+      'Trabaja por detras para reducir WhatsApps, recordatorios y tareas manuales sin convertirse en otro panel mas.',
+    accent: 'from-blue-500/30 via-blue-500/10 to-transparent',
+    href: 'https://rentos.nexostudios.digital/',
+    ctaLabel: 'Ver RentOS',
+  },
+  {
+    id: 'ingresos',
+    name: 'IngresOS',
+    logo: '/logo_IngresOS.svg',
+    logoBoxClass: 'h-16 w-32',
+    logoClass: 'h-11 w-28',
+    icon: 'request_quote',
+    status: 'Beta',
+    statusTone: 'bg-emerald-500/10 text-emerald-300 border-emerald-400/30',
+    description: 'Facturas y presupuestos por WhatsApp para autonomos y pequenos negocios.',
+    keyPhrase: 'Diselo a GlorIA y recibe tu PDF listo.',
+    focus:
+      'Pensado para ir rapido: WhatsApp, resumen previo, confirmacion y PDF. Sin vender fiscalidad avanzada que no toca.',
+    accent: 'from-emerald-400/25 via-cyan-500/10 to-transparent',
+    disabledLabel: 'Proximamente',
+  },
+  {
+    id: 'pilotos',
+    name: 'PilotOS',
+    logo: '/logo_PilotOS.svg',
+    logoBoxClass: 'h-16 w-32',
+    logoClass: 'h-11 w-28',
+    icon: 'route',
+    status: 'En desarrollo',
+    statusTone: 'bg-amber-400/10 text-amber-200 border-amber-300/30',
+    description: 'Gestion inteligente para flotas, conductores y operaciones en movilidad.',
+    keyPhrase: 'Control operativo claro para negocios que se mueven.',
+    focus:
+      'Preparado para taxi, VTC, flotas pequenas y negocios donde vehiculos, conductores y partes diarios importan.',
+    accent: 'from-amber-400/25 via-blue-500/10 to-transparent',
+    disabledLabel: 'Proximamente',
+  },
+];
 
 const EcosystemV2: React.FC = () => {
-  const containerRef = useRef<HTMLElement>(null);
-  const [activeIndex, setActiveIndex] = useState(0);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "center center"]
-  });
-
-  const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 60,
-    damping: 25,
-    restDelta: 0.001
-  });
-
-  const productZ = useTransform(smoothProgress, [0, 0.8], [-1500, 0]);
-  const productScale = useTransform(smoothProgress, [0, 0.8], [0.2, 1]);
-  const productOpacity = useTransform(smoothProgress, [0, 0.4, 0.8], [0, 0.3, 1]);
-  const productBlur = useTransform(smoothProgress, [0, 0.6, 0.8], [20, 5, 0]);
-  const masterLetterSpacing = useTransform(smoothProgress, [0.7, 1], ["0.02em", "0.1em"]);
-  const subTextY = useTransform(smoothProgress, [0.8, 1], [20, 0]);
-  const subTextOpacity = useTransform(smoothProgress, [0.8, 1], [0, 1]);
-
-  const nodes = [
-    { 
-      id: 'RentOS',
-      icon: 'home_work', 
-      logo: '/logo_RentOS.png',
-      name: 'RentOS', 
-      color: 'text-blue-400', 
-      status: 'Operativo en Producción',
-      isIncubation: false,
-      desc: 'RentOS viene a cambiar cómo se gestiona de verdad la operativa del alquiler vacacional. La operativa ya no tiene por qué depender de ti. Mete sistema donde más se nota: en la carga diaria que te roba tiempo, en la coordinación que desgasta y en el control que normalmente se pierde entre WhatsApp, tareas y cambios de última hora.' 
-    },
-    { 
-      id: 'PilotOS',
-      icon: 'local_taxi', 
-      name: 'PilotOS', 
-      color: 'text-indigo-400', 
-      status: 'Casi Listo / Pre-Lanzamiento',
-      isIncubation: false,
-      desc: 'El sistema operativo de NexOS para la operativa del taxi. Control de partes, gastos, mantenimientos y alertas. Una visión operativa completa que reduce la carga manual y aporta un nuevo nivel de orden y control diario.' 
-    },
-    { 
-      id: 'IngresOS',
-      icon: 'account_balance', 
-      name: 'IngresOS', 
-      color: 'text-cyan-600', 
-      status: 'En Laboratorio',
-      isIncubation: true,
-      desc: 'Capa / sistema orientado a ingresos, cobros, control económico y flujo financiero operativo integrado dentro del ecosistema NexOS.' 
-    },
-    { 
-      id: 'VecinOS',
-      icon: 'domain', 
-      name: 'VecinOS', 
-      color: 'text-slate-500', 
-      status: 'En Incubación',
-      isIncubation: true,
-      desc: 'Sistema operativo orientado a la operación de comunidades de vecinos y su gestión relacionada. Coordinación y mantenimiento sin fricción.' 
-    }
-  ];
-
   return (
-    <section ref={containerRef} className="py-24 relative bg-transparent overflow-hidden" id="ecosistema">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="mb-12 flex flex-col items-center text-center">
-          <span className="text-blue-500 font-black uppercase text-sm tracking-[1.2em] mb-12 block opacity-80">
-            SOLUCIONES OPERATIVAS
-          </span>
-          
-          <div className="relative perspective-[2000px] flex flex-col items-center justify-center min-h-[250px] w-full">
-            <motion.div 
-              style={{ letterSpacing: masterLetterSpacing }}
-              className="flex items-center justify-center flex-wrap"
-            >
-              <motion.span 
-                style={{ 
-                  z: productZ, 
-                  scale: productScale, 
-                  opacity: productOpacity,
-                  filter: `blur(${productBlur}px)`
-                }}
-                className="text-4xl md:text-[6rem] font-black text-white tracking-tighter"
-              >
-                Nuestros product
-              </motion.span>
-              
-              <div className="relative z-20">
-                <motion.div
-                  animate={{ rotateY: 360 }}
-                  transition={{ duration: 4.5, repeat: Infinity, ease: "linear" }}
-                  className="text-5xl md:text-[7rem] font-black text-blue-500 drop-shadow-[0_0_60px_rgba(59,130,246,0.8)]"
-                >
-                  OS
-                </motion.div>
-              </div>
-            </motion.div>
+    <section className="relative overflow-hidden bg-black py-28" id="ecosistema">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/30 to-transparent" />
+      <div className="absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-blue-600/10 blur-[140px] pointer-events-none" />
 
-            <motion.div 
-              style={{ y: subTextY, opacity: subTextOpacity }}
-              className="text-xl md:text-3xl font-light tracking-[0.25em] text-slate-500 mt-4 lowercase"
-            >
-              <span className="text-blue-500 font-black uppercase text-glow">O</span>perative 
-              <span className="mx-3"></span>
-              <span className="text-blue-500 font-black uppercase text-glow">S</span>ystems
-            </motion.div>
-          </div>
+      <div className="relative z-10 mx-auto max-w-6xl px-6">
+        <div className="mx-auto mb-16 max-w-4xl text-center">
+          <motion.span
+            initial={{ opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-6 inline-flex items-center gap-3 rounded-lg border border-blue-500/25 bg-blue-500/10 px-4 py-2 text-[10px] font-black uppercase tracking-[0.35em] text-blue-300"
+          >
+            <span className="h-1.5 w-1.5 rounded-full bg-blue-300 shadow-[0_0_16px_rgba(147,197,253,0.9)]" />
+            Ecosistema NexOS
+          </motion.span>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.05 }}
+            className="text-4xl font-black tracking-tight text-white md:text-6xl"
+          >
+            Sistemas operativos invisibles para negocios concretos.
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="mx-auto mt-6 max-w-3xl text-lg font-light leading-8 text-slate-400"
+          >
+            NexOS es la capa central. Cada producto OS resuelve una operativa distinta,
+            comparte la misma filosofia y se conecta con GlorIA como unica agente visible.
+          </motion.p>
         </div>
 
-        <div className="flex flex-col lg:flex-row w-full gap-4 min-h-[460px] mt-8">
-          {nodes.map((node, index) => {
-            const isActive = activeIndex === index;
-            const incOpacity = node.isIncubation ? (isActive ? 'opacity-90' : 'opacity-40') : (isActive ? 'opacity-100' : 'opacity-70');
-            const bgClass = node.isIncubation 
-                  ? (isActive ? 'bg-[#050505] border-white/10' : 'bg-transparent border-white/5 border-dashed hover:border-white/10')
-                  : (isActive ? 'bg-white/[0.04] border-blue-500/30 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)]' : 'hover:bg-white/[0.03] hover:border-white/10 glass border-white/5');
-
-            return (
-              <motion.div
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                initial={false}
-                animate={{ 
-                  flex: isActive ? (node.isIncubation ? 2 : 2.5) : 0.8,
-                }}
-                transition={{ type: "spring", stiffness: 120, damping: 20 }}
-                className={`relative cursor-pointer overflow-hidden rounded-[2.5rem] border transition-all duration-500 group ${bgClass} ${incOpacity} ${node.isIncubation ? 'saturate-50 hover:saturate-100' : ''}`}
-              >
-                <div className="p-8 h-full flex flex-col">
-                  {/* Cabecera de la Tarjeta */}
-                  <div className={`flex items-center transition-all duration-500 ${isActive ? 'flex-row gap-5' : 'flex-col gap-5'}`}>
-                    <div className={`w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center transition-all duration-500 ${node.color} ${isActive ? (node.isIncubation ? 'bg-white/5 border border-white/10' : 'bg-blue-600/20 shadow-[0_0_30px_rgba(59,130,246,0.2)] border border-blue-500/30') : 'bg-white/5'}`}>
-                      {'logo' in node && node.logo ? (
-                        <motion.img 
-                          src={node.logo} 
-                          alt={node.name} 
-                          className="w-full h-full p-0 object-contain scale-[1.65]" 
-                          animate={isActive ? { scale: [1.65, 1.7, 1.65] } : {}}
-                          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                        />
-                      ) : (
-                        <span className="material-symbols-outlined text-3xl md:text-4xl">{node.icon}</span>
-                      )}
-                    </div>
-                    
-                    <div className={`transition-all duration-500 ${isActive ? 'translate-y-0' : 'rotate-0 lg:rotate-90 lg:mt-24'}`}>
-                        <h3 className={`font-black tracking-tighter whitespace-nowrap ${isActive ? (node.isIncubation ? 'text-2xl md:text-3xl text-slate-300' : 'text-3xl md:text-4xl text-white') : 'text-xl opacity-60 text-slate-400'}`}>
-                          {node.name.slice(0, -2)}
-                          <span className={`${node.isIncubation ? 'text-slate-400' : 'text-blue-500'} ml-1`}>OS</span>
-                        </h3>
-                        {isActive && node.isIncubation && (
-                          <span className="text-[10px] font-mono tracking-widest text-slate-500 uppercase mt-1 block">{node.status}</span>
-                        )}
-                    </div>
-                  </div>
-
-                  {/* Contenido Dinámico */}
-                  <AnimatePresence>
-                    {isActive && (
-                      <motion.div
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        exit={{ opacity: 0, x: -5 }}
-                        transition={{ delay: 0.2 }}
-                        className="mt-8 flex flex-col flex-grow"
-                      >
-                        <p className={`${node.isIncubation ? 'text-slate-400 text-base' : 'text-slate-300 text-lg'} font-light leading-relaxed max-w-md`}>
-                          {node.desc}
-                        </p>
-                        
-                        {!node.isIncubation && (
-                          <div className="mt-auto pt-6 border-t border-white/5 flex items-center justify-between">
-                            <div className="flex flex-col">
-                              <span className="text-[10px] font-black uppercase tracking-[0.4em] text-blue-500/60">Estado de Despliegue</span>
-                              <span className="text-xs font-mono text-slate-400 uppercase mt-1 flex items-center gap-2">
-                                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
-                                {node.status}
-                              </span>
-                            </div>
-                            {node.id === 'RentOS' && (
-                              <div className="flex items-center gap-3">
-                                <a
-                                  href="https://rentos.nexostudios.digital/"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="px-4 py-2 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500 border border-white/10 hover:border-white/20 hover:text-white transition-all duration-300"
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  Visitar Web
-                                </a>
-                                <a
-                                  href="https://rentos.nexostudios.digital/onboarding.html"
-                                  target="_blank"
-                                  rel="noopener noreferrer"
-                                  className="px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-blue-600/20 text-blue-400 border border-blue-500/30 hover:bg-blue-600/40 hover:text-white transition-all duration-300 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]"
-                                  onClick={(e) => e.stopPropagation()}
-                                >
-                                  Activar Piloto Gratis →
-                                </a>
-                              </div>
-                            )}
-                          </div>
-                        )}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                  
-                  {isActive && !node.isIncubation && (
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 blur-[60px] rounded-full -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+        <div className="grid gap-5 lg:grid-cols-3">
+          {products.map((product, index) => (
+            <motion.article
+              key={product.id}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-80px' }}
+              transition={{ delay: index * 0.08, duration: 0.55, ease: 'easeOut' }}
+              className="group relative flex min-h-[520px] flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)] backdrop-blur-md transition duration-300 hover:-translate-y-1 hover:border-blue-400/30 hover:bg-white/[0.055]"
+            >
+              <div className={`absolute inset-x-0 top-0 h-36 bg-gradient-to-b ${product.accent} opacity-90`} />
+              <div className="relative z-10 flex items-start justify-between gap-4">
+                <div className={`flex ${product.logoBoxClass || 'h-16 w-16'} items-center justify-center rounded-lg border border-white/10 bg-black/35`}>
+                  {product.logo ? (
+                    <img
+                      src={product.logo}
+                      alt={product.name}
+                      className={`${product.logoClass || 'h-12 w-12'} object-contain`}
+                    />
+                  ) : (
+                    <span className="material-symbols-outlined text-3xl text-blue-300">{product.icon}</span>
                   )}
                 </div>
-              </motion.div>
-            );
-          })}
+                <span
+                  className={`rounded-lg border px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] ${product.statusTone}`}
+                >
+                  {product.status}
+                </span>
+              </div>
+
+              <div className="relative z-10 mt-8">
+                <h3 className="text-3xl font-black tracking-tight text-white">{product.name}</h3>
+                <p className="mt-5 text-base font-light leading-7 text-slate-300">{product.description}</p>
+              </div>
+
+              <div className="relative z-10 mt-8 rounded-lg border border-blue-400/20 bg-blue-500/10 p-4">
+                <p className="text-sm font-bold leading-6 text-blue-100">{product.keyPhrase}</p>
+              </div>
+
+              <p className="relative z-10 mt-6 text-sm leading-6 text-slate-500">{product.focus}</p>
+
+              <div className="relative z-10 mt-auto pt-8">
+                {product.href && product.ctaLabel ? (
+                  <a
+                    href={product.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-11 items-center justify-center rounded-lg border border-blue-400/30 bg-blue-600/20 px-4 text-xs font-black uppercase tracking-[0.18em] text-blue-200 transition hover:border-blue-300/60 hover:bg-blue-600/35 hover:text-white"
+                  >
+                    {product.ctaLabel}
+                  </a>
+                ) : (
+                  <span className="inline-flex min-h-11 cursor-not-allowed items-center justify-center rounded-lg border border-white/10 bg-white/[0.03] px-4 text-xs font-black uppercase tracking-[0.18em] text-slate-500">
+                    {product.disabledLabel}
+                  </span>
+                )}
+              </div>
+            </motion.article>
+          ))}
         </div>
 
-        <motion.div 
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          className="w-12 h-px bg-gradient-to-r from-transparent via-blue-500/10 to-transparent mx-auto mt-12"
-        ></motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-16 grid max-w-5xl gap-4 rounded-2xl border border-white/10 bg-[#020617]/80 p-6 md:grid-cols-[0.9fr_1.1fr]"
+        >
+          <div>
+            <p className="text-[10px] font-black uppercase tracking-[0.35em] text-blue-300">
+              Filosofia compartida
+            </p>
+            <h3 className="mt-4 text-2xl font-black tracking-tight text-white">
+              Automatizar, quitar carga y dar control de un vistazo.
+            </h3>
+          </div>
+          <p className="text-sm font-light leading-7 text-slate-400">
+            RentOS, IngresOS y PilotOS no son piezas aisladas. Son productos especializados
+            conectados al ecosistema NexOS para ordenar tareas repetitivas, reducir friccion
+            operativa y dejar que GlorIA sea la entrada natural para el cliente.
+          </p>
+        </motion.div>
       </div>
     </section>
   );

@@ -10,7 +10,8 @@ const Footer: React.FC = () => {
           <div className="col-span-1 md:col-span-2 space-y-8">
             <Logo className="h-10" />
             <p className="text-slate-500 font-light text-lg max-w-sm">
-              Construyendo la arquitectura neural del futuro hoy. Activa tu nodo y habla con GlorIA.
+              NexOS crea productos OS conectados por GlorIA para automatizar
+              negocios concretos con menos carga operativa.
             </p>
             <div className="flex gap-4">
               {[1, 2, 3].map(i => (
@@ -24,7 +25,7 @@ const Footer: React.FC = () => {
           <div className="space-y-6">
             <h4 className="text-white font-bold uppercase tracking-widest text-xs">Ecosistema</h4>
             <ul className="space-y-4 text-slate-500 font-light text-sm">
-              {['RentOS', 'PilotOS', 'IngresOS', 'RadiOS', 'LogicOS'].map(item => (
+              {['RentOS', 'IngresOS', 'PilotOS'].map(item => (
                 <li key={item} className="hover:text-blue-400 cursor-pointer transition-colors">{item}</li>
               ))}
             </ul>

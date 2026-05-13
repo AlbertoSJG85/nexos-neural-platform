@@ -12,14 +12,15 @@ const MetricsV2: React.FC = () => {
             whileInView={{ opacity: 1 }}
             className="text-4xl md:text-5xl font-bold text-white tracking-tight mb-4"
           >
-            Operativa Real. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Impacto Tangible.</span>
+            Operativa real. <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600">Control de un vistazo.</span>
           </motion.h2>
           <motion.p 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 0.7 }}
             className="text-slate-400 text-lg font-light max-w-2xl mx-auto"
           >
-            Sistemas diseñados con el único objetivo de devolver tiempo y control al núcleo de tu negocio.
+            Sistemas disenados para devolver tiempo y control al nucleo de tu negocio,
+            sin obligarte a perseguir tareas por varios canales.
           </motion.p>
         </div>
 
@@ -38,18 +39,20 @@ const MetricsV2: React.FC = () => {
                 <h3 className="text-4xl md:text-5xl font-extrabold text-white">Menos Fricción</h3>
               </div>
               <p className="text-slate-400 text-xl font-light leading-relaxed">
-                Eliminación de tareas repetitivas y cuellos de botella manuales. Automatización útil que opera en segundo plano para que los equipos físicos no pierdan un segundo.
+                Eliminacion de tareas repetitivas y cuellos de botella manuales.
+                Automatizacion util que opera en segundo plano para que el negocio
+                avance con menos friccion.
               </p>
             </div>
             
             {/* Decoded/Stream pattern background instead of arbitrary bars */}
             <div className="absolute right-0 bottom-0 opacity-10 pointer-events-none w-1/2 p-6 overflow-hidden">
                <div className="flex flex-col gap-2 font-mono text-[10px] text-blue-400 opacity-60">
-                 <span>[SUCCESS] Webhook Check-in received</span>
-                 <span>[SUCCESS] Auth token verified</span>
-                 <span>[SUCCESS] Tuya door lock opened id=94</span>
-                 <span>[SUCCESS] GlorIA notified user (WhatsApp)</span>
-                 <span>[AWAITING] Cleaning service scheduled</span>
+                 <span>[NexOS] Evento operativo recibido</span>
+                 <span>[GlorIA] Contexto identificado</span>
+                 <span>[RentOS] Seguimiento diario preparado</span>
+                 <span>[IngresOS] PDF pendiente de confirmacion</span>
+                 <span>[PilotOS] Vista operativa actualizada</span>
                </div>
             </div>
           </motion.div>
@@ -87,12 +90,39 @@ const MetricsV2: React.FC = () => {
             <div className="flex-1">
               <h4 className="text-3xl font-bold text-white mb-4">Sistemas con Propósito</h4>
               <p className="text-slate-400 font-light text-lg">
-                No coleccionamos automatizaciones sueltas. Diseñamos productos que resuelven flujos operativos complejos desde la raíz, integrando de forma cohesiva la infraestructura tecnológica con el mundo físico.
+                No coleccionamos automatizaciones sueltas. Disenamos productos
+                OS para negocios concretos: cada uno ordena su operativa y todos
+                comparten NexOS y GlorIA como base comun.
               </p>
             </div>
           </motion.div>
 
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 32 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16 rounded-2xl border border-blue-400/20 bg-blue-600/10 p-8 text-center"
+        >
+          <p className="text-[10px] font-black uppercase tracking-[0.35em] text-blue-300">
+            Siguiente paso
+          </p>
+          <h3 className="mx-auto mt-4 max-w-3xl text-3xl font-black tracking-tight text-white md:text-5xl">
+            Quiero automatizar mi negocio.
+          </h3>
+          <p className="mx-auto mt-5 max-w-2xl text-base font-light leading-7 text-slate-400">
+            Cuentaselo a GlorIA y vemos que producto OS encaja mejor con tu operativa.
+          </p>
+          <a
+            href="https://wa.me/34641996450?text=Hola%20GlorIA%2C%20quiero%20automatizar%20mi%20negocio%20con%20NexOS"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-8 inline-flex min-h-12 items-center justify-center rounded-lg bg-blue-600 px-6 text-xs font-black uppercase tracking-[0.2em] text-white transition hover:bg-blue-500"
+          >
+            Hablar con GlorIA
+          </a>
+        </motion.div>
       </div>
     </section>
   );

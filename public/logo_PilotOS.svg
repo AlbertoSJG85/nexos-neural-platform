@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1800" height="520" viewBox="0 0 1800 520">
+    <rect width="100%" height="100%" fill="#05070B"/>
+    <g transform="translate(90 70) scale(0.75)">
+    <g transform="translate(0 0) scale(1)">
+      <polygon points="70,70 128,70 105,250 47,250" fill="#FFB703"/>
+      <path d="M155 38 H330 C415 38 468 92 468 165 C468 238 412 288 330 288 H257 L275 232 H331 C378 232 408 204 408 164 C408 123 379 95 332 95 H212 L188 288 H132 Z" fill="#FFFFFF"/>
+      <path d="M230 152 C247 132 271 119 306 119 H330 C358 119 380 137 380 164 C380 192 359 209 330 209 H284 L271 250 H223 L245 182 Z" fill="#05070B" opacity="0.98"/>
+      <path d="M172 189 L224 142" stroke="#FFFFFF" stroke-width="25" stroke-linecap="round"/>
+      <circle cx="245" cy="124" r="23" fill="#FFB703"/>
+      <circle cx="245" cy="124" r="11" fill="#FFB703"/>
+    </g></g>
+    
+        <text x="560" y="260" text-anchor="start" font-family="Montserrat, Poppins, Arial, sans-serif" font-size="150" font-weight="800" letter-spacing="-6" fill="#FFFFFF">Pilot</text>
+        <text x="950" y="260" text-anchor="start" font-family="Montserrat, Poppins, Arial, sans-serif" font-size="150" font-weight="800" letter-spacing="-6" fill="#FFB703">OS</text>
+        
+    <text x="565" y="350" text-anchor="start" font-family="Montserrat, Poppins, Arial, sans-serif" font-size="35" font-weight="700" letter-spacing="10" fill="#FFFFFF">GESTIÓN <tspan fill="#FFB703">INTELIGENTE</tspan> PARA FLOTAS</text>
+    
+    </svg>
