@@ -59,7 +59,7 @@ const NeuralHubV2: React.FC = () => {
             </span>
             
             <h2 className="text-5xl md:text-7xl font-bold text-white tracking-tighter mb-4">
-              Una unica agente visible.
+              Mucho más que un asistente.
             </h2>
             
             <motion.div 
@@ -69,9 +69,7 @@ const NeuralHubV2: React.FC = () => {
               className="mt-6 max-w-3xl"
             >
               <p className="text-lg md:text-xl font-light text-slate-400 tracking-wide leading-relaxed mb-6">
-                GlorIA no es un asistente aislado. Es la cara visible de NexOS:
-                una unica entrada para el cliente, con multiples productos OS
-                trabajando por detras.
+                GlorIA no es un asistente aislado. Es el cerebro visible que conecta productos, interpreta el contexto y activa la operativa correcta en cada momento.
               </p>
               <motion.p 
                 initial={{ opacity: 0, scale: 0.85, filter: 'blur(8px)' }}
@@ -80,7 +78,7 @@ const NeuralHubV2: React.FC = () => {
                 viewport={{ once: true }}
                 className="text-xl md:text-2xl font-semibold text-[#38bdf8] tracking-tight"
               >
-                Una voz. Varios sistemas. Menos carga operativa.
+                GlorIA siempre activa, siempre contigo
               </motion.p>
             </motion.div>
           </motion.div>

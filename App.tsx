@@ -15,7 +15,7 @@ const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
-    document.title = "NexOS | Ecosistema de productos OS para negocios";
+    document.title = "NexOS | Control y Automatización para tu Negocio";
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
