@@ -37,6 +37,9 @@ const Footer: React.FC = () => {
               {['Sobre Nosotros', 'Contactar GlorIA', 'Privacidad', 'Protocolos'].map(item => (
                 <li key={item} className="hover:text-blue-400 cursor-pointer transition-colors">{item}</li>
               ))}
+              <li>
+                <a href="/lucia" className="hover:text-blue-400 transition-colors">LucIA</a>
+              </li>
             </ul>
           </div>
         </div>

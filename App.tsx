@@ -9,6 +9,7 @@ import MetricsV2 from './components/MetricsV2';
 import Footer from './components/Footer';
 import StarField from './components/StarField';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Lucia from './components/Lucia';
 
 const App: React.FC = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
@@ -35,6 +36,11 @@ const App: React.FC = () => {
   // Privacy Policy page
   if (currentPath === '/privacidad') {
     return <PrivacyPolicy />;
+  }
+
+  // LucIA public info page (OAuth verification)
+  if (currentPath === '/lucia') {
+    return <Lucia />;
   }
 
   // Landing page (default)
