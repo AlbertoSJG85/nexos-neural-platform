@@ -84,7 +84,8 @@ const EcosystemV2: React.FC = () => {
       isIncubation: false,
       desc: 'Recibe, ordena y prioriza las consultas que llegan a una consulta médica por WhatsApp e Instagram. Clasifica cada mensaje, lo registra y avisa a quien tiene que actuar. No diagnostica, no receta y no sustituye al profesional.',
       keyPhrase: 'Ninguna consulta se queda sin respuesta ni sin registrar.',
-      disabledLabel: 'En piloto privado',
+      href: 'https://clinicos.nexostudios.digital/',
+      ctaLabel: 'Ver ClinicOS',
     },
     {
       id: 'IngresOS',

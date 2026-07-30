@@ -93,6 +93,14 @@ const ProjectsAndLab: React.FC = () => {
                 Que un sistema puede pasar de maqueta a producto en producción, con usuarios,
                 cobros y administración de verdad, sin dejar de ser mantenible.
               </p>
+              <a
+                href="https://heysocio.es"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex min-h-11 items-center justify-center rounded-full border border-white/10 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 transition hover:border-white/25 hover:text-white"
+              >
+                Ver Heysocio
+              </a>
             </div>
           </div>
         </motion.div>

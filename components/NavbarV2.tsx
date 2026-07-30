@@ -13,7 +13,7 @@ const NavbarV2: React.FC = () => {
 
   const navLinks = [
     { name: 'Qué es NexOS', href: '#que-es' },
-    { name: 'Antes y después', href: '#antes-despues' },
+    { name: 'Lo que ganas', href: '#antes-despues' },
     { name: 'Productos', href: '#ecosistema' },
     { name: 'GlorIA', href: '#hub' },
     { name: 'Proyectos', href: '#proyectos' }

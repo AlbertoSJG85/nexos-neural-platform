@@ -3,7 +3,7 @@ import Logo from './Logo';
 
 const ecosistema = [
   { name: 'Qué es NexOS', href: '#que-es' },
-  { name: 'Antes y después', href: '#antes-despues' },
+  { name: 'Lo que ganas', href: '#antes-despues' },
   { name: 'Productos OS', href: '#ecosistema' },
   { name: 'GlorIA', href: '#hub' },
   { name: 'El núcleo', href: '#nucleo' },
