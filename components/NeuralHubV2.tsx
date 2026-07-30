@@ -69,7 +69,7 @@ const NeuralHubV2: React.FC = () => {
               className="mt-6 max-w-3xl"
             >
               <p className="text-lg md:text-xl font-light text-slate-400 tracking-wide leading-relaxed mb-6">
-                GlorIA no es un asistente aislado. Es el cerebro visible que conecta productos, interpreta el contexto y activa la operativa correcta en cada momento.
+                GlorIA no es un asistente aislado ni un chatbot que responde preguntas. Es la única cara visible del ecosistema: entiende lo que pasa, decide qué producto tiene que actuar y lo pone en marcha. Tu equipo habla con ella; por detrás se mueve todo el sistema.
               </p>
               <motion.p 
                 initial={{ opacity: 0, scale: 0.85, filter: 'blur(8px)' }}
@@ -215,9 +215,9 @@ const NeuralHubV2: React.FC = () => {
         {/* Atributos de Presencia - Ajustados sutilmente */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16 border-t border-[#1e3a8a]/30 pt-20 max-w-5xl mx-auto">
           {[
-            { label: 'COORDINACIÓN TOTAL', val: 'Registro Absoluto', desc: 'Guarda estados, prioridades e historial en base de datos. Nada se pierde en un hilo de chat.' },
-            { label: 'EJECUCIÓN SILENCIOSA', val: 'Orquestación', desc: 'Acciona flujos, interactúa con APIs externas y actualiza el sistema operativo sin intervención manual.' },
-            { label: 'INTERFAZ NATURAL', val: 'Canales Naturales', desc: 'No hay que descargar apps. GlorIA opera vía WhatsApp interactivamente cuando tú o tu equipo lo necesitáis.' },
+            { label: 'NO SE OLVIDA DE NADA', val: 'Todo queda escrito', desc: 'Estados, prioridades e historial se guardan en la base de datos del sistema. Nada depende de encontrar un mensaje perdido en un chat.' },
+            { label: 'ACTÚA SIN QUE SE LO PIDAS', val: 'Trabaja de fondo', desc: 'Lanza los avisos, habla con los sistemas externos y actualiza tu operativa sola, aunque tú estés haciendo otra cosa.' },
+            { label: 'DONDE YA ESTÁS', val: 'Por WhatsApp', desc: 'No hay que instalar nada ni aprender un programa nuevo. Tu equipo le escribe como le escribiría a un compañero.' },
           ].map((attr, i) => (
             <motion.div 
               key={i}

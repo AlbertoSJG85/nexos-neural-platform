@@ -12,10 +12,11 @@ const NavbarV2: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Qué es NexOS', href: '#hero' },
+    { name: 'Qué es NexOS', href: '#que-es' },
+    { name: 'Antes y después', href: '#antes-despues' },
     { name: 'Productos', href: '#ecosistema' },
     { name: 'GlorIA', href: '#hub' },
-    { name: 'Cómo funciona', href: '#metrics' }
+    { name: 'Proyectos', href: '#proyectos' }
   ];
 
   return (
@@ -35,7 +36,7 @@ const NavbarV2: React.FC = () => {
           <Logo className="h-9 md:h-11" />
         </a>
         
-        <div className="hidden lg:flex items-center gap-12">
+        <div className="hidden lg:flex items-center gap-7 xl:gap-11">
           {navLinks.map(item => (
             <a key={item.name} href={item.href} className="text-[11px] font-black uppercase tracking-[0.3em] text-slate-500 hover:text-white transition-colors relative group">
               {item.name}

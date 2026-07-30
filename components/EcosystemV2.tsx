@@ -50,12 +50,41 @@ const EcosystemV2: React.FC = () => {
       logoClass: 'w-full h-full p-0 object-contain scale-[1.65]',
       name: 'RentOS',
       color: 'text-blue-400',
-      status: 'Disponible',
+      status: 'En producción',
       isIncubation: false,
-      desc: 'Automatiza la operativa de alquiler vacacional: reservas, huespedes, limpiezas, avisos y seguimiento diario.',
-      keyPhrase: 'Automatiza tu alquiler vacacional y relajate.',
+      desc: 'Ordena la operativa del alquiler vacacional. Las reservas entran solas desde los portales, la limpieza recibe su aviso, el día a día queda seguido y lo cobrado queda cuadrado.',
+      keyPhrase: 'Automatiza tu alquiler vacacional y relájate.',
       href: 'https://rentos.nexostudios.digital/',
       ctaLabel: 'Ver RentOS',
+    },
+    {
+      id: 'PilotOS',
+      icon: 'route',
+      logo: '/logo_PilotOS.svg',
+      logoBoxClass: 'w-28 h-14 md:w-32 md:h-16',
+      logoClass: 'w-24 md:w-28 h-auto object-contain',
+      name: 'PilotOS',
+      color: 'text-amber-300',
+      status: 'En producción',
+      isIncubation: false,
+      desc: 'La gestión operativa, económica y documental del taxi. Parte diario, gastos, mantenimientos, kilómetros y alertas, con los documentos donde deben estar.',
+      keyPhrase: 'El parte diario mueve todo el sistema.',
+      href: 'https://pilotos.nexostudios.digital/',
+      ctaLabel: 'Ver PilotOS',
+    },
+    {
+      id: 'ClinicOS',
+      icon: 'stethoscope',
+      logo: '/logo_ClinicOS.svg',
+      logoBoxClass: 'w-14 h-14 md:w-16 md:h-16',
+      logoClass: 'w-full h-full p-2 object-contain',
+      name: 'ClinicOS',
+      color: 'text-teal-300',
+      status: 'Piloto privado',
+      isIncubation: false,
+      desc: 'Recibe, ordena y prioriza las consultas que llegan a una consulta médica por WhatsApp e Instagram. Clasifica cada mensaje, lo registra y avisa a quien tiene que actuar. No diagnostica, no receta y no sustituye al profesional.',
+      keyPhrase: 'Ninguna consulta se queda sin respuesta ni sin registrar.',
+      disabledLabel: 'En piloto privado',
     },
     {
       id: 'IngresOS',
@@ -67,23 +96,9 @@ const EcosystemV2: React.FC = () => {
       color: 'text-emerald-400',
       status: 'Beta',
       isIncubation: false,
-      desc: 'Facturas y presupuestos por WhatsApp para autonomos y pequenos negocios.',
-      keyPhrase: 'Diselo a GlorIA y recibe tu PDF listo.',
-      disabledLabel: 'Proximamente',
-    },
-    {
-      id: 'PilotOS',
-      icon: 'route',
-      logo: '/logo_PilotOS.svg',
-      logoBoxClass: 'w-28 h-14 md:w-32 md:h-16',
-      logoClass: 'w-24 md:w-28 h-auto object-contain',
-      name: 'PilotOS',
-      color: 'text-amber-300',
-      status: 'En desarrollo',
-      isIncubation: false,
-      desc: 'Gestion inteligente para flotas, conductores y operaciones en movilidad.',
-      keyPhrase: 'Control operativo claro para negocios que se mueven.',
-      disabledLabel: 'Proximamente',
+      desc: 'Facturas y presupuestos para autónomos y negocios pequeños, pedidos por WhatsApp y devueltos en PDF, sin abrir ningún programa.',
+      keyPhrase: 'Díselo a GlorIA y recibe tu PDF listo.',
+      disabledLabel: 'Próximamente',
     },
   ];
 
@@ -91,8 +106,8 @@ const EcosystemV2: React.FC = () => {
     <section ref={containerRef} className="py-24 relative bg-transparent overflow-hidden" id="ecosistema">
       <div className="max-w-7xl mx-auto px-6">
         <div className="mb-12 flex flex-col items-center text-center">
-          <span className="text-blue-500 font-black uppercase text-sm tracking-[1.2em] mb-12 block opacity-80">
-            SOLUCIONES OPERATIVAS
+          <span className="text-blue-500 font-black uppercase text-sm tracking-[0.8em] mb-12 block opacity-80">
+            PRODUCTOS PROPIOS NEXOS
           </span>
 
           <div className="relative perspective-[2000px] flex flex-col items-center justify-center min-h-[250px] w-full">
@@ -131,6 +146,14 @@ const EcosystemV2: React.FC = () => {
             </motion.div>
           </div>
         </div>
+
+        <motion.p
+          style={{ opacity: subTextOpacity }}
+          className="mx-auto mt-10 max-w-2xl text-center text-base font-light leading-relaxed text-slate-400"
+        >
+          Sistemas construidos y mantenidos por NexOS para un sector concreto. Mismo núcleo,
+          misma GlorIA, distinta operativa. Cada uno indica el estado real en el que está hoy.
+        </motion.p>
 
         <div className="flex flex-col lg:flex-row w-full gap-4 min-h-[460px] mt-8">
           {nodes.map((node, index) => {

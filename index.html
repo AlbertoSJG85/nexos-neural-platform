@@ -4,7 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NexOS | Neural Architecture</title>
+    <title>NexOS | Sistemas operativos invisibles para negocios reales</title>
+    <meta name="description" content="NexOS construye sistemas operativos invisibles para negocios reales: productos propios como RentOS, PilotOS, ClinicOS e IngresOS, proyectos a medida y GlorIA como cara visible del ecosistema." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="NexOS" />
+    <meta property="og:locale" content="es_ES" />
+    <meta property="og:title" content="NexOS | Sistemas operativos invisibles para negocios reales" />
+    <meta property="og:description" content="No hacemos automatizaciones sueltas: construimos el sistema entero. Productos OS, proyectos a medida e infraestructura común, con GlorIA como cara visible." />
+    <meta property="og:url" content="https://nexostudios.digital/" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#000000" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -41,6 +50,14 @@
         .vertical-text {
             writing-mode: vertical-rl;
             text-orientation: mixed;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
         ::-webkit-scrollbar { width: 4px; }
         ::-webkit-scrollbar-track { background: #000; }

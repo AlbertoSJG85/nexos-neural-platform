@@ -2,9 +2,12 @@
 import React, { useEffect, useState } from 'react';
 import NavbarV2 from './components/NavbarV2';
 import HeroV2 from './components/HeroV2';
+import WhatIsNexOS from './components/WhatIsNexOS';
+import BeforeAfter from './components/BeforeAfter';
 import EcosystemV2 from './components/EcosystemV2';
-import InterfaceShowcase from './components/InterfaceShowcase';
 import NeuralHubV2 from './components/NeuralHubV2';
+import CoreLayer from './components/CoreLayer';
+import ProjectsAndLab from './components/ProjectsAndLab';
 import MetricsV2 from './components/MetricsV2';
 import Footer from './components/Footer';
 import StarField from './components/StarField';
@@ -16,7 +19,7 @@ const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
   useEffect(() => {
-    document.title = "NexOS | Control y Automatización para tu Negocio";
+    document.title = "NexOS | Sistemas operativos invisibles para negocios reales";
     const handleMouseMove = (e: MouseEvent) => {
       setMousePos({ x: e.clientX, y: e.clientY });
     };
@@ -63,9 +66,12 @@ const App: React.FC = () => {
       <NavbarV2 />
       <main className="relative z-10">
         <HeroV2 />
+        <WhatIsNexOS />
+        <BeforeAfter />
         <EcosystemV2 />
-        <InterfaceShowcase />
         <NeuralHubV2 />
+        <CoreLayer />
+        <ProjectsAndLab />
         <MetricsV2 />
       </main>
       <Footer />
