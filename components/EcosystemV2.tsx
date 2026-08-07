@@ -7,6 +7,8 @@ type EcosystemNode = {
   logo?: string;
   logoClass?: string;
   logoBoxClass?: string;
+  /** 'light': el logo es de tinta oscura y necesita placa clara para leerse sobre el fondo negro. */
+  logoTone?: 'light';
   name: string;
   color: string;
   status: string;
@@ -60,7 +62,7 @@ const EcosystemV2: React.FC = () => {
     {
       id: 'PilotOS',
       icon: 'route',
-      logo: '/logo_PilotOS.svg',
+      logo: '/logo_PilotOS.png',
       logoBoxClass: 'w-28 h-14 md:w-32 md:h-16',
       logoClass: 'w-24 md:w-28 h-auto object-contain',
       name: 'PilotOS',
@@ -75,9 +77,10 @@ const EcosystemV2: React.FC = () => {
     {
       id: 'ClinicOS',
       icon: 'stethoscope',
-      logo: '/logo_ClinicOS.svg',
+      logo: '/logo_ClinicOS.png',
       logoBoxClass: 'w-14 h-14 md:w-16 md:h-16',
       logoClass: 'w-full h-full p-2 object-contain',
+      logoTone: 'light',
       name: 'ClinicOS',
       color: 'text-teal-300',
       status: 'Piloto privado',
@@ -177,7 +180,11 @@ const EcosystemV2: React.FC = () => {
               >
                 <div className="p-8 h-full flex flex-col">
                   <div className={`flex items-center transition-all duration-500 ${isActive ? 'flex-row gap-5' : 'flex-col gap-5'}`}>
-                    <div className={`${node.logoBoxClass || 'w-14 h-14 md:w-16 md:h-16'} rounded-2xl flex items-center justify-center transition-all duration-500 ${node.color} ${isActive ? 'bg-blue-600/20 shadow-[0_0_30px_rgba(59,130,246,0.2)] border border-blue-500/30' : 'bg-white/5'}`}>
+                    <div className={`${node.logoBoxClass || 'w-14 h-14 md:w-16 md:h-16'} rounded-2xl flex items-center justify-center transition-all duration-500 ${node.color} ${
+                      node.logoTone === 'light'
+                        ? (isActive ? 'bg-white shadow-[0_0_30px_rgba(62,185,181,0.25)] border border-white/60' : 'bg-white/85')
+                        : (isActive ? 'bg-blue-600/20 shadow-[0_0_30px_rgba(59,130,246,0.2)] border border-blue-500/30' : 'bg-white/5')
+                    }`}>
                       {node.logo ? (
                         <motion.img
                           src={node.logo}
