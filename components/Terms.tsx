@@ -61,7 +61,7 @@ const Terms: React.FC = () => {
                                 infraestructura de mensajería que los conecta con WhatsApp e Instagram.
                             </p>
                             <div className="glass rounded-2xl p-6 mt-4 space-y-1 text-sm">
-                                <p><span className="text-white font-semibold">Entidad:</span> NexOS</p>
+                                <p><span className="text-white font-semibold">Entidad:</span> NEXOS OPERATING SYSTEMS, S.L. (marca comercial: NexOS)</p>
                                 <p><span className="text-white font-semibold">Sitio web:</span> nexostudios.digital</p>
                                 <p><span className="text-white font-semibold">Contacto:</span> contacto@nexostudios.digital</p>
                             </div>
