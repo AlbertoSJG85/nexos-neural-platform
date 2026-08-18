@@ -12,6 +12,8 @@ import MetricsV2 from './components/MetricsV2';
 import Footer from './components/Footer';
 import StarField from './components/StarField';
 import PrivacyPolicy from './components/PrivacyPolicy';
+import Terms from './components/Terms';
+import DataDeletion from './components/DataDeletion';
 import Lucia from './components/Lucia';
 
 const App: React.FC = () => {
@@ -39,6 +41,16 @@ const App: React.FC = () => {
   // Privacy Policy page
   if (currentPath === '/privacidad') {
     return <PrivacyPolicy />;
+  }
+
+  // Terms of Service page
+  if (currentPath === '/terminos') {
+    return <Terms />;
+  }
+
+  // Data Deletion page (requerida por Meta App Review)
+  if (currentPath === '/eliminacion-datos') {
+    return <DataDeletion />;
   }
 
   // LucIA public info page (OAuth verification)
