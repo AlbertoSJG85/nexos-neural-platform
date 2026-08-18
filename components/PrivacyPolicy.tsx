@@ -40,7 +40,7 @@ const PrivacyPolicy: React.FC = () => {
                     </h1>
                     <div className="h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent max-w-xs mx-auto mt-8 mb-6"></div>
                     <p className="text-slate-500 text-sm font-light">
-                        Última actualización: 27 de febrero de 2026
+                        Última actualización: 18 de agosto de 2026
                     </p>
                 </div>
 
@@ -183,8 +183,9 @@ const PrivacyPolicy: React.FC = () => {
                             </p>
                             <ul className="space-y-2">
                                 {[
-                                    'Meta Platforms (WhatsApp Business API): para el envío y recepción de mensajes.',
-                                    'Proveedores de infraestructura tecnológica necesarios para la operación del servicio.',
+                                    'Meta Platforms (WhatsApp Business API, Instagram): para el envío y recepción de mensajes.',
+                                    'Contabo (alojamiento de servidores, Unión Europea): infraestructura donde se ejecutan y almacenan nuestros sistemas.',
+                                    'Backblaze B2 (copias de seguridad, región UE): almacenamiento cifrado de copias de seguridad de nuestras bases de datos.',
                                     'Cuando sea requerido por ley o autoridad competente.',
                                 ].map((text, i) => (
                                     <li key={i} className="flex items-start gap-3">
